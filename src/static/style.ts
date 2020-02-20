@@ -1,3 +1,5 @@
-import "./header.less";
 import "./home.less";
+
+import "../Header/header.less";
+
 import "./responsive.less";

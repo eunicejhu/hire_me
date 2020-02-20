@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import DocumentTitle from "react-document-title";
 
 import Header from "./Header";
-import Page1 from "./Page1";
 import "./static/style";
 
 const Home: React.FC = () => {
@@ -19,11 +18,7 @@ const Home: React.FC = () => {
     <DocumentTitle title="ZUOQIN HU">
       <div>
         <Header />
-        <div className="home-wrapper">
-          {/* <Banner isMobile={isMobile} /> */}
-          <Page1 isMobile={isMobile} />
-          {/* <Page2 /> */}
-        </div>
+        <div className="home-wrapper"></div>
         {/* <Footer /> */}
       </div>
     </DocumentTitle>
