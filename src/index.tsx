@@ -2,8 +2,10 @@ import { enquireScreen } from "enquire-js";
 import React, { useEffect, useState } from "react";
 import DocumentTitle from "react-document-title";
 
+import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
+
 import "./static/style";
 
 const Home: React.FC = () => {
@@ -20,6 +22,7 @@ const Home: React.FC = () => {
       <div>
         <Header />
         <Main />
+        <Footer />
       </div>
     </DocumentTitle>
   );

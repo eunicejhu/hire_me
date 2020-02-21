@@ -55,7 +55,7 @@ const Main: React.FC = () => (
         </div>
       </section>
     </div>
-    <div className="container footer">
+    <div className="container column-flex">
       <h3>Get shady with science</h3>
       <p>
         Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur
