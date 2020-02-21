@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import DocumentTitle from "react-document-title";
 
 import Header from "./Header";
+import Main from "./Main";
 import "./static/style";
 
 const Home: React.FC = () => {
@@ -18,8 +19,7 @@ const Home: React.FC = () => {
     <DocumentTitle title="ZUOQIN HU">
       <div>
         <Header />
-        <div className="home-wrapper"></div>
-        {/* <Footer /> */}
+        <Main />
       </div>
     </DocumentTitle>
   );
