@@ -2,6 +2,8 @@ import React from "react";
 
 import { Button, Icon } from "antd";
 
+import CV from "../static/files/CV_zuoqin.pdf";
+
 const Main: React.FC = () => (
   <div className="main">
     <div className="container">
@@ -56,7 +58,7 @@ const Main: React.FC = () => (
         tech stack. Five years' experience enables me to set up architecture of
         project from scratch and to tackle problems autonomously.
       </p>
-      <Button href="#" className="button">
+      <Button href={CV} download className="button">
         Get my CV
       </Button>
     </div>
