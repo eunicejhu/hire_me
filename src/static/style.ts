@@ -1,4 +1,4 @@
-import "./home.less";
+import "../home/home.less";
 
 import "../Header/header.less";
 
