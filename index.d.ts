@@ -1,1 +1,4 @@
-declare module 'enquire-js'
+declare module "*.pdf" {
+  const value: any;
+  export default value;
+}
