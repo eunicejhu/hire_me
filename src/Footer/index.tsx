@@ -7,11 +7,8 @@ const { TextArea } = Input;
 const Footer: React.FC = () => (
   <footer className="footer">
     <div className="container footer-flex">
-      <h2>Questions or comments?</h2>
-      <p>
-        Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur
-        tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.
-      </p>
+      <h2>Questions about me?</h2>
+      <p>I'm open for your questions about my profession and projects.</p>
       <form method="post" className="footer-flex">
         <div className="row">
           <Input placeholder="Name"></Input>
@@ -27,16 +24,24 @@ const Footer: React.FC = () => (
 
       <ul className="social-media footer-flex-row">
         <li>
-          <Icon type="twitter" className="icon"></Icon>
+          <a href="">
+            <Icon type="twitter" className="icon"></Icon>
+          </a>
         </li>
         <li>
-          <Icon className="icon" type="facebook"></Icon>
+          <a href="">
+            <Icon className="icon" type="facebook"></Icon>{" "}
+          </a>
         </li>
         <li>
-          <Icon className="icon" type="instagram"></Icon>
+          <a href="https://www.instagram.com/isabella608hu" target="_blank">
+            <Icon className="icon" type="instagram"></Icon>
+          </a>
         </li>
         <li>
-          <Icon className="icon" type="github"></Icon>
+          <a>
+            <Icon className="icon" type="github"></Icon>
+          </a>
         </li>
       </ul>
       <ul className="copyright footer-flex-row">

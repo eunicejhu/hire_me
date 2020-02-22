@@ -5,7 +5,7 @@ import { Icon } from "antd";
 const Header: React.FC = () => (
   <div className="header">
     <Icon
-      type="message"
+      type="sound"
       style={{ fontSize: "7em", color: "#4eb980" }}
       theme="filled"
     />
