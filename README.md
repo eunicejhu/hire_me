@@ -11,3 +11,8 @@
 - [ ] 6. typescript Interface
 - [ ] 7. OOP thinking mode
 - [ ] 8. how to write your own d.ts file
+
+## Deloypment
+
+1. `npm run build`
+2. `npm run deploy`
