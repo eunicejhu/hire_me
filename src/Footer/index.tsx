@@ -1,27 +1,13 @@
+import { Icon } from "antd";
 import React from "react";
-
-import { Button, Icon, Input } from "antd";
-
-const { TextArea } = Input;
+import { WrappedForm as Form } from "./Form";
 
 const Footer: React.FC = () => (
   <footer className="footer">
     <div className="container footer-flex">
       <h2>Questions about me?</h2>
       <p>I'm open for your questions about my profession and projects.</p>
-      <form method="post" className="footer-flex">
-        <div className="row">
-          <Input placeholder="Name"></Input>
-          <Input placeholder="Email"></Input>
-        </div>
-        <div className="row">
-          <TextArea placeholder="Message"></TextArea>
-        </div>
-        <div className="row">
-          <Button className="button">Send Message</Button>
-        </div>
-      </form>
-
+      <Form />
       <ul className="social-media footer-flex-row">
         <li>
           <a href="">
