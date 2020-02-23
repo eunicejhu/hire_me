@@ -52,7 +52,7 @@ const Main: React.FC = () => (
       </section>
     </div>
     <div className="container column-flex">
-      <h3>Web developer </h3>
+      <h3>Hire me </h3>
       <p>
         I'm looking for a Front-end job. I prefer React & typescript related
         tech stack. Five years' experience enables me to set up architecture of
