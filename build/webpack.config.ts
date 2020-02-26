@@ -2,6 +2,9 @@ import htmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 import tsImportPlugin from "ts-import-plugin";
 import webpack from "webpack";
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+const ExtractCssChunks = require("extract-css-chunks-webpack-plugin");
 
 const config: webpack.Configuration = {
   devServer: {
@@ -10,7 +13,8 @@ const config: webpack.Configuration = {
     host: "localhost",
     port: 9000
   },
-  devtool: process.env.NODE_ENV === "production" ? false : "inline-source-map",
+  devtool:
+    process.env.NODE_ENV === "production" ? "source-map" : "inline-source-map",
   entry: "./src/index.tsx",
   module: {
     rules: [
@@ -41,18 +45,9 @@ const config: webpack.Configuration = {
       {
         test: /\.less$/,
         use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader"
-          },
-          {
-            loader: "less-loader",
-            options: {
-              javascriptEnabled: true
-            }
-          }
+          ExtractCssChunks.loader,
+          "css-loader",
+          { loader: "less-loader", options: { javascriptEnabled: true } }
         ]
       },
       {
@@ -91,13 +86,20 @@ const config: webpack.Configuration = {
       }
     ]
   },
-  output: { filename: "build.js", path: path.resolve(__dirname, "dist") },
+  output: {
+    filename: "build.js",
+    path: path.resolve(__dirname, "dist")
+  },
   resolve: { extensions: [".tsx", ".ts", ".js"] },
 
   plugins: [
+    process.env.NODE_ENV === "production"
+      ? new BundleAnalyzerPlugin({ generateStatsFile: true })
+      : () => {},
     new htmlWebpackPlugin({
       template: "index.html"
-    })
+    }),
+    new ExtractCssChunks()
   ]
 };
 export default config;
