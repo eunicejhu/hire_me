@@ -1,6 +1,6 @@
 import { Icon } from "antd";
 import React from "react";
-import { WrappedForm as Form } from "./Form";
+import Form from "./Form";
 
 const Footer: React.FC = () => (
   <footer className="footer">

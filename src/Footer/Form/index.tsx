@@ -1,31 +1,16 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form as AntForm, Input } from "antd";
 import React, { useCallback, useState } from "react";
 
-import { FormProps } from "antd/es/form";
-const { TextArea } = Input;
+import { FormProps } from "antd/lib/form";
 
-interface IWrappedFormUtils {
-  setFieldsValue(obj: object, callback?: () => void): void;
-  validateFields(
-    fieldNames: string[],
-    callback: <V>(errors: any, values: V) => void
-  ): void;
-  getFieldDecorator<T extends object = {}>(
-    id: keyof T,
-    options?: object
-  ): (node: React.ReactNode) => React.ReactNode;
-}
+const { TextArea } = Input;
 
 const MessageForm: React.FC<FormProps> = ({ form }) => {
   const [success, setSuccess] = useState<boolean>(false);
 
-  const {
-    getFieldDecorator,
-    validateFields,
-    setFieldsValue
-  } = form as IWrappedFormUtils;
+  const { getFieldDecorator, validateFields, setFieldsValue } = form;
 
-  const handleSubmit = useCallback(ev => {
+  const handleSubmit = useCallback((ev: React.FormEvent) => {
     ev.preventDefault();
     const waitForASecond = (callback: () => void) => {
       setTimeout(() => {
@@ -34,7 +19,7 @@ const MessageForm: React.FC<FormProps> = ({ form }) => {
     };
 
     // check input rules
-    validateFields(["name", "email", "message"], (error: any) => {
+    validateFields(["name", "email", "message"], (error: React.ErrorInfo) => {
       if (!error) {
         // send form data
         const messageForm = ev.target as HTMLFormElement;
@@ -62,41 +47,41 @@ const MessageForm: React.FC<FormProps> = ({ form }) => {
   }, []);
 
   return (
-    <Form
+    <AntForm
       onSubmit={handleSubmit}
       action="https://formspree.io/xbjylbaj"
       method="post"
       className="footer-flex"
     >
       <div className="row">
-        <Form.Item className="form-item">
+        <AntForm.Item className="form-item">
           {getFieldDecorator("name", {
             rules: [{ required: true, message: "required" }]
           })(<Input placeholder="Name" name="name" />)}
-        </Form.Item>
-        <Form.Item className="form-item">
+        </AntForm.Item>
+        <AntForm.Item className="form-item">
           {getFieldDecorator("email", {
             rules: [
               { required: true, message: "invalid", pattern: /\S+@\S+\.\S+/ }
             ]
           })(<Input placeholder="Email" name="email"></Input>)}
-        </Form.Item>
+        </AntForm.Item>
       </div>
       <div className="row">
-        <Form.Item className="form-item message">
+        <AntForm.Item className="form-item message">
           {getFieldDecorator("message", {
             rules: [{ required: true, message: "required" }]
           })(<TextArea placeholder="Message" name="message"></TextArea>)}
-        </Form.Item>
+        </AntForm.Item>
       </div>
       <div className="row center">
         <Button className="button" htmlType="submit">
           {success ? "Sent!" : "Send Message"}
         </Button>
       </div>
-    </Form>
+    </AntForm>
   );
 };
 
-const WrappedForm = Form.create()(MessageForm);
-export { WrappedForm };
+const Form = AntForm.create()(MessageForm);
+export default Form;
