@@ -4,8 +4,6 @@ import tsImportPlugin from "ts-import-plugin";
 import webpack from "webpack";
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
-const ExtractCssChunks = require("extract-css-chunks-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production'
 
