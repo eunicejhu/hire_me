@@ -5,6 +5,9 @@ import webpack from "webpack";
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 const ExtractCssChunks = require("extract-css-chunks-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const devMode = process.env.NODE_ENV !== 'production'
 
 const config: webpack.Configuration = {
   devServer: {
@@ -14,7 +17,7 @@ const config: webpack.Configuration = {
     port: 9000
   },
   devtool:
-    process.env.NODE_ENV === "production" ? "source-map" : "inline-source-map",
+    !devMode ? "source-map" : "inline-source-map",
   entry: "./src/index.tsx",
   module: {
     rules: [
@@ -39,13 +42,9 @@ const config: webpack.Configuration = {
         test: /\.tsx?$/
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      },
-      {
-        test: /\.less$/,
+        test: /\.(less|css)$/,
         use: [
-          ExtractCssChunks.loader,
+          "style-loader",
           "css-loader",
           { loader: "less-loader", options: { javascriptEnabled: true } }
         ]
@@ -99,7 +98,7 @@ const config: webpack.Configuration = {
     new htmlWebpackPlugin({
       template: "index.html"
     }),
-    new ExtractCssChunks()
+    
   ],
   optimization: {
     splitChunks: {
