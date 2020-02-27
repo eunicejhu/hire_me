@@ -88,7 +88,7 @@ const config: webpack.Configuration = {
   },
   output: {
     filename: "build.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
   },
   resolve: { extensions: [".tsx", ".ts", ".js"] },
 
@@ -100,6 +100,17 @@ const config: webpack.Configuration = {
       template: "index.html"
     }),
     new ExtractCssChunks()
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      maxSize: 288960,
+      cacheGroups: {
+        vendor: {
+          name: "vendor",
+          chunks: "all"
+        }
+      }
+    }
+  }
 };
 export default config;
