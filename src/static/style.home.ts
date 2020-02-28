@@ -6,4 +6,6 @@ import "../Main/main.less";
 
 import "../Footer/footer.less";
 
+import "../Timeline/timeline.less";
+
 import "./responsive.less";

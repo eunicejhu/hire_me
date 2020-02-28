@@ -5,7 +5,7 @@ import Footer from "../Footer";
 import Header from "../Header";
 import Main from "../Main";
 
-import "../static/style";
+import "../static/style.home";
 
 const Home: React.FC = () => (
   <DocumentTitle title="ZUOQIN HU">
