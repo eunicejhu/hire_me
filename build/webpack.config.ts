@@ -4,10 +4,8 @@ import tsImportPlugin from "ts-import-plugin";
 import webpack from "webpack";
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
-const ExtractCssChunks = require("extract-css-chunks-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const devMode = process.env.NODE_ENV !== 'production'
+const devMode = process.env.NODE_ENV !== "production";
 
 const config: webpack.Configuration = {
   devServer: {
@@ -16,8 +14,7 @@ const config: webpack.Configuration = {
     host: "localhost",
     port: 9000
   },
-  devtool:
-    !devMode ? "source-map" : "inline-source-map",
+  devtool: !devMode ? "source-map" : "inline-source-map",
   entry: "./src/index.tsx",
   module: {
     rules: [
@@ -87,7 +84,7 @@ const config: webpack.Configuration = {
   },
   output: {
     filename: "build.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist")
   },
   resolve: { extensions: [".tsx", ".ts", ".js"] },
 
@@ -97,8 +94,7 @@ const config: webpack.Configuration = {
       : () => {},
     new htmlWebpackPlugin({
       template: "index.html"
-    }),
-    
+    })
   ],
   optimization: {
     splitChunks: {
