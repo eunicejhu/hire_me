@@ -5,6 +5,9 @@
   font-style: normal;
 }
 
+@green: rgb(78, 185, 128);
+@green_opacity: rgba(78, 185, 128, 0.2);
+@red: rgb(233, 33, 99);
 .timeline {
   font-family: "SpaceMono";
   font-size: 1em;
@@ -21,7 +24,7 @@
   }
 }
 
-ul {
+.timeline ul {
   margin: 0 auto;
   padding: 0 4em;
   li {
@@ -37,7 +40,7 @@ ul {
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background-color: rgb(233, 33, 99);
+      background-color: @green;
     }
 
     &::after {
@@ -48,7 +51,7 @@ ul {
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background-color: rgba(233, 33, 99, 0.2);
+      background-color: @green_opacity;
     }
 
     &:hover {
@@ -106,7 +109,7 @@ ul {
       transition: transform 0.2s ease-in-out;
       padding: 0 2em;
       h3 {
-        color: rgba(233, 33, 99, 1);
+        color: @green;
       }
       p {
         color: rgba(0, 0, 0, 0.6);
@@ -114,11 +117,11 @@ ul {
     }
     .step {
       transition: transform 0.2s ease-in-out;
-      width: 7em;
+      width: 10em;
       position: relative;
       float: right;
-      background-color: rgb(233, 33, 99);
-      box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.2);
+      background-color: @green;
+      box-shadow: 0 0 0 3px @green_opacity;
       margin: 0 2em;
       text-align: center;
       padding: 0.8em;
@@ -141,7 +144,7 @@ ul {
       left: 4em;
     }
   }
-  ul li {
+  .timeline ul li {
     width: 100%;
     margin: 0 0 3em 0;
 

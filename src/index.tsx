@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import Home from "./Home";
-import Timeline from "./Timeline";
+import Routes from "./Routes";
 
-ReactDOM.render(<Timeline />, document.getElementById("root"));
+ReactDOM.render(<Routes />, document.getElementById("root"));
